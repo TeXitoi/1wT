@@ -5,6 +5,7 @@ extern crate mdo;
 
 pub mod prob;
 
+#[cfg(not(test))]
 fn main () {
     use mdo::option::bind;
 
