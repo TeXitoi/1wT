@@ -11,6 +11,7 @@ use std::rand;
 use std::rand::distributions::{Sample, Range};
 
 /// A Job
+#[deriving(Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct Job {
     /// processing time
     pub p: u32,
@@ -21,6 +22,7 @@ pub struct Job {
 }
 
 /// The 1||ΣwT problem description
+#[deriving(Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct Prob {
     /// The list of the jobs
     pub jobs: Vec<Job>
