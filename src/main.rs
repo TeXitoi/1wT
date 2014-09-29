@@ -28,7 +28,7 @@ fn main () {
         ret std::from_str::from_str(s.as_slice())
     }.expect("first arg must be the number of jobs");
 
-    let prob = prob::create_prob(n);
+    let prob = prob::Prob::new_rnd(n);
     for j in prob.jobs.iter() {
         println!("{} {} {}", j.p, j.d, j.w);
     }
