@@ -2,7 +2,8 @@
 
 ## Description
 
-Some experiments on the scheduling problem 1||ΣwT.
+Some experiments on the scheduling problem 1||ΣwT (one machine total
+weighted tardiness scheduling problem).
 
 ## License
 
