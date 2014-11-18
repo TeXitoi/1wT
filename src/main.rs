@@ -6,7 +6,7 @@
 // more details.
 
 #![license = "WTFPLv2"]
-#![deny(missing_doc)]
+#![deny(missing_docs)]
 #![deny(warnings)]
 
 #![feature(tuple_indexing)]
@@ -85,7 +85,7 @@ fn main () {
     let args = std::os::args();
     let n: u32 = mdo! {
         s <- args[].get(1);
-        ret std::from_str::from_str(s.as_slice())
+        ret std::str::from_str(s.as_slice())
     }.expect("first arg must be the number of jobs");
 
     let prob = prob::Prob::new_rnd(n);
