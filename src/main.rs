@@ -5,11 +5,9 @@
 // Version 2, as published by Sam Hocevar. See the COPYING file for
 // more details.
 
-#![license = "WTFPLv2"]
 #![deny(missing_docs)]
 #![deny(warnings)]
 
-#![feature(tuple_indexing)]
 #![feature(phase)]
 
 //! This program generate the problem.

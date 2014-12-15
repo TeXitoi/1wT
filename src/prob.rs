@@ -11,7 +11,7 @@ use std::rand;
 use std::rand::distributions::{Sample, Range};
 
 /// A Job
-#[deriving(Clone, PartialOrd, Ord, PartialEq, Eq)]
+#[deriving(Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]
 pub struct Job {
     /// processing time
     pub p: u32,
