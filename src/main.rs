@@ -30,7 +30,7 @@ pub struct Chrono<T> {
 }
 
 ///compute and chronometer
-pub fn chrono<T>(f: || -> T) -> Chrono<T> {
+pub fn chrono<T, F: FnMut() -> T>(mut f: F) -> Chrono<T> {
     use time::precise_time_s;
     let start = precise_time_s();
     let res = f();
@@ -45,7 +45,7 @@ pub fn solve_optimal(prob: &Prob) -> (u32, uint) {
     let mut search_space = 0u;
     for (i, j) in std::slice::ElementSwaps::new(s.jobs.len()) {
         search_space += 1;
-        s.jobs.as_mut_slice().swap(i, j);
+        s.jobs.swap(i, j);
         let cur_wt = s.eval();
         if cur_wt < opt_wt {
             opt_wt = cur_wt;
@@ -82,8 +82,8 @@ fn main () {
 
     let args = std::os::args();
     let n: u32 = mdo! {
-        s <- args[].get(1);
-        ret std::str::FromStr::from_str(s.as_slice())
+        s <- args.get(1);
+        ret s.parse()
     }.expect("first arg must be the number of jobs");
 
     let prob = prob::Prob::new_rnd(n);
