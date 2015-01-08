@@ -8,11 +8,9 @@
 #![deny(missing_docs)]
 #![deny(warnings)]
 
-#![feature(phase)]
-
 //! This program generate the problem.
 
-#[phase(plugin, link)]
+#[macro_use]
 extern crate mdo;
 extern crate time;
 
