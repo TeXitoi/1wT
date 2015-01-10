@@ -42,7 +42,7 @@ impl Prob {
         let mut d = Range::new(1, 100 * n / 3);
         let mut w = Range::new(1u32, 10);
         Prob {
-            jobs: range(0, n).map(|_| Job {
+            jobs: (0..n).map(|_| Job {
                 p: p.sample(rng), d: d.sample(rng), w: w.sample(rng)
             }).collect()
         }
@@ -79,7 +79,7 @@ mod test {
     #[test]
     fn new_rnd() {
         for n in range(0, 100) {
-            assert!(Prob::new_rnd(n).jobs.len() == n as uint);
+            assert!(Prob::new_rnd(n).jobs.len() == n as usize);
         }
     }
 

@@ -6,7 +6,7 @@
 // more details.
 
 #![deny(missing_docs)]
-#![deny(warnings)]
+//#![deny(warnings)]
 
 //! This program generate the problem.
 
@@ -37,10 +37,10 @@ pub fn chrono<T, F: FnMut() -> T>(mut f: F) -> Chrono<T> {
 }
 
 /// find the optimal solution by bruteforce
-pub fn solve_optimal(prob: &Prob) -> (u32, uint) {
+pub fn solve_optimal(prob: &Prob) -> (u32, usize) {
     let mut s = prob.clone();
     let mut opt_wt = s.eval();
-    let mut search_space = 0u;
+    let mut search_space = 0;
     for (i, j) in std::slice::ElementSwaps::new(s.jobs.len()) {
         search_space += 1;
         s.jobs.swap(i, j);
@@ -54,7 +54,7 @@ pub fn solve_optimal(prob: &Prob) -> (u32, uint) {
 }
 
 /// find using montecarlo until a solution of quality lb is found
-pub fn solve_mc(prob: &Prob, lb: u32) -> (u32, uint) {
+pub fn solve_mc(prob: &Prob, lb: u32) -> (u32, usize) {
     use std::rand;
 
     let mut i = 0;
@@ -80,7 +80,7 @@ fn main () {
 
     let args = std::os::args();
     let n: u32 = mdo! {
-        s <- args.get(1);
+        s =<< args.get(1);
         ret s.parse()
     }.expect("first arg must be the number of jobs");
 
