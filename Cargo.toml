@@ -8,4 +8,4 @@ authors = ["Guillaume Pinot <texitoi@texitoi.eu>"]
 git = "https://github.com/TeXitoi/rust-mdo.git"
 
 [dependencies.time]
-git = "https://github.com/rust-lang/time"
+[dependencies.rand]

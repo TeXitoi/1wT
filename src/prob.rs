@@ -7,8 +7,8 @@
 
 //! Description of the problem
 
-use std::rand;
-use std::rand::distributions::{Sample, Range};
+use rand;
+use rand::distributions::{Sample, Range};
 
 /// A Job
 #[derive(Copy, Clone, PartialOrd, Ord, PartialEq, Eq)]

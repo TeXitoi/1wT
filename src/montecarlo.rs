@@ -8,7 +8,7 @@
 //! Monte Carlo modification of a problem
 
 use prob::Prob;
-use std::rand;
+use rand;
 
 /// Returns a random solution
 pub fn montecarlo<R: rand::Rng>(p: &Prob, rng: &mut R) -> Prob {
@@ -21,7 +21,7 @@ pub fn montecarlo<R: rand::Rng>(p: &Prob, rng: &mut R) -> Prob {
 mod test {
     use prob::Prob;
     use montecarlo;
-    use std::rand;
+    use rand;
 
     #[test]
     fn montecarlo() {

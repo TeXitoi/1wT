@@ -7,12 +7,14 @@
 
 #![deny(missing_docs)]
 //#![deny(warnings)]
+#![feature(core, collections, env, os)]
 
 //! This program generate the problem.
 
 #[macro_use]
 extern crate mdo;
 extern crate time;
+extern crate rand;
 
 use prob::Prob;
 
@@ -55,7 +57,7 @@ pub fn solve_optimal(prob: &Prob) -> (u32, usize) {
 
 /// find using montecarlo until a solution of quality lb is found
 pub fn solve_mc(prob: &Prob, lb: u32) -> (u32, usize) {
-    use std::rand;
+    use rand;
 
     let mut i = 0;
     let rng: &mut rand::XorShiftRng =
@@ -78,10 +80,10 @@ pub fn solve_mc(prob: &Prob, lb: u32) -> (u32, usize) {
 fn main () {
     use mdo::option::bind;
 
-    let args = std::os::args();
     let n: u32 = mdo! {
-        s =<< args.get(1);
-        ret s.parse()
+        s =<< std::env::args().nth(1);
+        s =<< s.to_str();
+        ret s.parse().ok()
     }.expect("first arg must be the number of jobs");
 
     let prob = prob::Prob::new_rnd(n);
