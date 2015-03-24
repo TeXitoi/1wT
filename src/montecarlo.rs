@@ -25,7 +25,7 @@ mod test {
 
     #[test]
     fn montecarlo() {
-        for n in range(0, 100) {
+        for n in 0..100 {
             let mut p = Prob::new_rnd(n);
             let rng: &mut rand::XorShiftRng =
                 &mut rand::SeedableRng::from_seed([1, 2, 3, 5]);

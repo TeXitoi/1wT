@@ -78,7 +78,7 @@ mod test {
 
     #[test]
     fn new_rnd() {
-        for n in range(0, 100) {
+        for n in 0..100 {
             assert!(Prob::new_rnd(n).jobs.len() == n as usize);
         }
     }

@@ -7,7 +7,7 @@
 
 #![deny(missing_docs)]
 //#![deny(warnings)]
-#![feature(core, collections, env, os)]
+#![feature(collections)]
 
 //! This program generate the problem.
 
@@ -81,7 +81,7 @@ fn main () {
     use mdo::option::bind;
 
     let n: u32 = mdo! {
-        s =<< std::env::args().nth(1);
+        s =<< std::env::args_os().nth(1);
         s =<< s.to_str();
         ret s.parse().ok()
     }.expect("first arg must be the number of jobs");
