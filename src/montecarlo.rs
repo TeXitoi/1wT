@@ -13,7 +13,7 @@ use rand;
 /// Returns a random solution
 pub fn montecarlo<R: rand::Rng>(p: &Prob, rng: &mut R) -> Prob {
     let mut res = p.clone();
-    rng.shuffle(res.jobs.as_mut_slice());
+    rng.shuffle(&mut res.jobs);
     res
 }
 
